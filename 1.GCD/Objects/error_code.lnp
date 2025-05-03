@@ -1,0 +1,3 @@
+".\Objects\error.obj" 
+TO ".\Objects\error_code" 
+PRINT(".\Listings\error_code.m51") RAMSIZE(256) 

@@ -1,0 +1,74 @@
+A51 MACRO ASSEMBLER  ERROR                                                                01/13/2025 16:03:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\error.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE error.a51 SET(SMALL) DEBUG PRINT(.\Listings\error.lst) OBJECT(.\Objects
+                      \error.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0H
+0000 020100            3     LJMP MAIN
+0100                   4     ORG 100H
+0100                   5     MAIN:
+                       6     
+0100 3130              7     CALL GCD
+0102 80FE              8     HERE: SJMP HERE
+0130                   9     ORG 130H
+0130                  10     GCD:
+0130 75501B           11     MOV 50H , #1BH
+0133 75510F           12     MOV 51H , #0FH
+0136 E550             13     MOV A , 50H
+0138 8551F0           14     MOV B , 51H
+                      15     
+013B 95F0             16     S:              SUBB A , B 
+013D 4009             17                     JC HERE1
+013F 6009             18                     JZ HERE2
+0141 AAF0             19                     MOV R2 , B
+0143 BA00F5           20                     CJNE R2 , #00H , S 
+0146 800F             21                     JMP ENDING
+                      22     
+0148 F4               23     HERE1:  CPL A
+0149 04               24                     INC A      
+014A 65F0             25     HERE2:  XRL A , B
+014C 62F0             26                     XRL B , A
+014E 65F0             27                     XRL A , B
+0150 AAF0             28                     MOV R2,  B
+0152 BA00E6           29                     CJNE R2 , #00H , S
+0155 8000             30                     JMP ENDING
+0157                  31     ENDING:
+0157 F552             32                     MOV 52H , A
+0159 74F0             33     Y:              MOV A , #0F0H
+015B F590             34     X:              MOV P1,A
+015D 14               35                     DEC A
+015E B400FA           36                     CJNE A , #00H , X
+0161 80F6             37                     JMP Y
+0163 22               38     RET
+                      39     END 
+A51 MACRO ASSEMBLER  ERROR                                                                01/13/2025 16:03:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+ENDING . . . . . .  C ADDR   0157H   A   
+GCD. . . . . . . .  C ADDR   0130H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+HERE1. . . . . . .  C ADDR   0148H   A   
+HERE2. . . . . . .  C ADDR   014AH   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+S. . . . . . . . .  C ADDR   013BH   A   
+X. . . . . . . . .  C ADDR   015BH   A   
+Y. . . . . . . . .  C ADDR   0159H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
