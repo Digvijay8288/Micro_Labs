@@ -1,0 +1,67 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/07/2025  11:27:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\odd_sum.obj TO .\Objects\Odd_sum PRINT (.\Listings\Odd_sum.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\odd_sum.obj (ODD_SUM)
+
+
+LINK MAP OF MODULE:  .\Objects\Odd_sum (ODD_SUM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     014BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Odd_sum (ODD_SUM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ODD_SUM
+  C:013DH         SYMBOL        CHECK_LOOP
+  C:0135H         SYMBOL        EVEN
+  C:0102H         SYMBOL        HERE
+  C:0100H         SYMBOL        MAIN
+  C:0130H         SYMBOL        ODD
+  C:0138H         SYMBOL        ODDSUM
+  C:0000H         LINE#         2
+  C:0100H         LINE#         6
+  C:0102H         LINE#         8
+  C:0130H         LINE#         14
+  C:0132H         LINE#         15
+  C:0134H         LINE#         17
+  C:0135H         LINE#         20
+  C:0137H         LINE#         21
+  C:0138H         LINE#         25
+  C:013BH         LINE#         28
+  C:013DH         LINE#         31
+  C:013EH         LINE#         32
+  C:0140H         LINE#         35
+  C:0142H         LINE#         36
+  C:0143H         LINE#         37
+  C:0145H         LINE#         40
+  C:0146H         LINE#         41
+  C:0147H         LINE#         42
+  C:014AH         LINE#         45
+  -------         ENDMOD        ODD_SUM
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0022H BYTE ( 1%) *
+******************************************************************************
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/07/2025  11:27:08  PAGE 2
+
+
+
+Program Size: data=8.0 xdata=0 code=331
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

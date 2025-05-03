@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  ADDITION_16                                                          01/20/2025 15:15:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\addition_16.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE addition_16.a51 SET(SMALL) DEBUG PRINT(.\Listings\addition_16.lst) OBJE
+                      CT(.\Objects\addition_16.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1      ORG 0H
+0000 020100            2      LJMP MAIN
+0100                   3      ORG 100H
+0100                   4      MAIN:
+0100 3130              5      CALL ADD16
+0102 80FE              6      HERE: SJMP HERE 
+0130                   7      ORG 130H
+                       8              
+0130                   9      ADD16:
+                      10        
+                      11      
+0130 757400           12      MOV 74H, #00H
+0133 757500           13      MOV 75H, #00H
+0136 757600           14      MOV 76H, #00H
+                      15      ;Load and add the lower bytes
+0139 E571             16      MOV A,71H
+013B 2573             17      ADD A,73H
+013D F576             18      MOV 76H,A
+013F 4007             19      JC ADD_MSB
+                      20      ;No carry 
+0141 E570             21      MOV A,70H
+0143 2572             22      ADD A,72H
+0145 F575             23      MOV 75H, A
+0147 22               24      RET
+                      25      ;Carry case 
+0148                  26      ADD_MSB:
+0148 E570             27      MOV A,70H
+014A 3572             28      ADDC A, 72H
+014C F575             29      MOV 75H, A
+                      30      
+                      31      ;carry to z16 (MSB of result)
+014E 7400             32      MOV A,#00H
+0150 3400             33      ADDC A,#00H
+0152 F574             34      MOV 74H,A
+                      35      
+0154 22               36      RET
+                      37      END
+A51 MACRO ASSEMBLER  ADDITION_16                                                          01/20/2025 15:15:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD16. . . . . . .  C ADDR   0130H   A   
+ADD_MSB. . . . . .  C ADDR   0148H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  ODD_SUM                                                              02/07/2025 11:27:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\odd_sum.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE odd_sum.a51 SET(SMALL) DEBUG PRINT(.\Listings\odd_sum.lst) OBJECT(.\Obj
+                      ects\odd_sum.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H
+0000 020100            2     LJMP MAIN          
+                       3     
+0100                   4     ORG 100H
+0100                   5     MAIN:
+0100 3138              6         CALL ODDSUM    
+0102                   7     HERE:
+0102 80FE              8         SJMP HERE     
+                       9     
+0130                  10     ORG 130H
+                      11     
+0130                  12     ODD:
+                      13         
+0130 5401             14         ANL A, #01H    ; Perform AND with 01H, keeping only the LSB
+0132 6001             15         JZ EVEN        ; If LSB is 0, jump to EVEN 
+                      16         
+0134 22               17         RET           
+                      18     
+0135                  19     EVEN:
+0135 7600             20             MOV @R0,#00
+0137 22               21         RET            
+                      22     
+0138                  23     ODDSUM:
+                      24         
+0138 757000           25         MOV 70H, #00H 
+                      26     
+                      27         ; Loop through memory locations 60H to 67H
+013B 7860             28         MOV R0, #60H   ; Set R0 to point to memory location 60H
+                      29     
+013D                  30     CHECK_LOOP:
+013D E6               31         MOV A, @R0      
+013E 3130             32         CALL ODD       
+                      33     
+                      34         ; If the number is odd, add it to the sum stored in 70H
+0140 E570             35         MOV A, 70H     
+0142 26               36         ADD A, @R0      
+0143 F570             37         MOV 70H, A     
+                      38     
+                      39         ; Move to the next number in memory (increment R0)
+0145 08               40         INC R0         
+0146 E8               41         MOV A, R0
+0147 B467F3           42         CJNE  A, #67H, CHECK_LOOP   
+                      43          ; If not, continue checking
+                      44     
+014A 22               45         RET            
+                      46     
+                      47     END
+A51 MACRO ASSEMBLER  ODD_SUM                                                              02/07/2025 11:27:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK_LOOP . . . .  C ADDR   013DH   A   
+EVEN . . . . . . .  C ADDR   0135H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+ODD. . . . . . . .  C ADDR   0130H   A   
+ODDSUM . . . . . .  C ADDR   0138H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
