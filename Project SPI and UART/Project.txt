@@ -1,3 +1,7 @@
-This project involved designing and implementing a board-to-board communication system using the SPI protocol, combined with UART communication for external input and result display. A Master-Slave architecture was developed where the Master board receives two numbers from a PC via UART (using Realterm), and transmits them to a Slave board over SPI. The Slave performs a check to determine if the sum of the numbers is a prime number, then sends the result back to the Master. Both boards display the result ("PRIME" or "NOT PRIME") on their respective LCDs.
+This project involved designing and implementing a board-to-board communication system using the SPI protocol, 
+combined with UART communication for external input and result display. 
+A Master-Slave architecture was developed where the Master board receives two numbers from a PC via UART (using Realterm), and transmits them to a Slave board over SPI. 
+The Slave performs a check to determine if the sum of the numbers is a prime number, then sends the result back to the Master. Both boards display the result ("PRIME" or "NOT PRIME") on their respective LCDs.
 
-To optimize performance and demonstrate low-level hardware interaction, arithmetic operations—including addition and multiply-accumulate (MAC)—were implemented in ARM assembly and linked with the main C program. The system showcases the integration of SPI and UART protocols, LCD interfacing, assembly-C code linking, and logical computation in an embedded environment..
+To optimize performance and demonstrate low-level hardware interaction, arithmetic operations—including addition and multiply-accumulate (MAC)—were implemented in ARM assembly and linked with the main C program.
+The system showcases the integration of SPI and UART protocols, LCD interfacing, assembly-C code linking, and logical computation in an embedded environment..
